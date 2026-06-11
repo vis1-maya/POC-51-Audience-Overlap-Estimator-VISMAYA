@@ -6,3 +6,10 @@ api_router.include_router(channels.router, prefix="/channels", tags=["channels"]
 api_router.include_router(overlap.router, prefix="/overlap", tags=["overlap"])
 api_router.include_router(reach.router, prefix="/reach", tags=["reach"])
 api_router.include_router(media_plan.router, prefix="/media-plan", tags=["media-plan"])
+
+# Root-level endpoint to support direct GET /api/sample-data requests
+@api_router.get("/sample-data", tags=["media-plan"])
+def get_sample_data():
+    from app.api.endpoints.media_plan import download_sample_data
+    return download_sample_data()
+

@@ -93,7 +93,7 @@ export async function downloadMediaPlan(
 }
 
 export async function downloadSampleData() {
-  const res = await fetch(`${BASE_URL}/api/media-plan/sample-data`);
+  const res = await fetch(`${BASE_URL}/api/sample-data`);
   if (!res.ok) {
     throw new Error(`Failed to download sample data: ${res.statusText}`);
   }
